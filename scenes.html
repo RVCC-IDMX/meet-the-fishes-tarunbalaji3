@@ -64,7 +64,11 @@
     scene1.addChild(nextButton);
 
     //And let's add some text to tell us which scene we're on
-    let scene1Text = new PIXI.Text("Scene 1",{fill:0xFFFFFF});
+    let scene1Text = new PIXI.Text("Meet the Fishes",{
+        fontFamily: 'Serif',
+        fontSize: 32,
+        fill:0xFF00FF,
+    });
 
     //And place it into the scene
     scene1.addChild(scene1Text);
@@ -83,8 +87,19 @@
     //And place it into the scene
     scene2.addChild(backButton);
 
+    
+    let nextButton_2 = UI.Button(0,0,"Next >");
+    nextButton_2.x = app.view.width  - nextButton_2.width;
+    nextButton_2.y = app.view.height - nextButton_2.height;
+    scene2.addChild(nextButton_2);
+
+
     //And let's also add some text to tell us which scene we're on
-    let scene2Text = new PIXI.Text("Scene 2",{fill:0xFFFFFF});
+    let scene2Text = new PIXI.Text("Shaggy",{
+        fontFamily: 'Serif',
+        fontSize: 32,
+        fill:0x00FFFF
+    });
 
     //And place it into the scene
     scene2.addChild(scene2Text);
@@ -92,6 +107,58 @@
 
     //Now let's add the first scene to the stage
     app.stage.addChild(scene1);
+
+    
+
+    //SCENE 3
+    let scene3 = new PIXI.Container();
+
+    let backButton_2 = UI.Button(0,0,"< Back");
+    
+    backButton_2.x = 0;
+    backButton_2.y = app.view.height - backButton_2.height;
+
+    scene3.addChild(backButton_2);
+
+    
+    let nextButton_3 = UI.Button(0,0,"Next >");
+    nextButton_3.x = app.view.width  - nextButton_3.width;
+    nextButton_3.y = app.view.height - nextButton_3.height;
+    scene3.addChild(nextButton_3);
+
+    let scene3Text = new PIXI.Text("Scooby",{
+        fontFamily: 'Serif',
+        fontSize: 32,
+        fill:0x39FF14
+    });
+
+    scene3.addChild(scene3Text);
+
+
+    //SCENE 4
+    let scene4 = new PIXI.Container();
+
+    let backButton_3 = UI.Button(0,0,"< Back");
+    
+    backButton_3.x = 0;
+    backButton_3.y = app.view.height - backButton_3.height;
+
+    scene4.addChild(backButton_3);
+
+    
+    // let nextButton_3 = UI.Button(0,0,"Next >");
+    // nextButton_3.x = app.view.width  - nextButton_3.width;
+    // nextButton_3.y = app.view.height - nextButton_3.height;
+    // scene3.addChild(nextButton_3);
+
+    let scene4Text = new PIXI.Text("Velma",{
+        fontFamily: 'Serif',
+        fontSize: 32,
+        fill:0xFF00FF
+    });
+
+    scene4.addChild(scene4Text);
+
 
 
     /*
@@ -115,6 +182,11 @@
         app.stage.removeChild(scene2);
         app.stage.addChild(scene1);
     }
+
+    // nextButton_2.onclick = () => {
+    //     app.stage.removeChild(scene2);
+    //     app.stage.addChild(scene3);
+    // }
 
     
 
@@ -347,13 +419,31 @@
 
     Director.addScene("first",scene1);
     Director.addScene("second",scene2);
+    Director.addScene("third",scene3);
+    Director.addScene("fourth",scene4);
 
     nextButton.onclick = () => {
-        Director.showScene("second");
+        Director.showScene("second",);
     }
 
     backButton.onclick = () => {
         Director.showScene("first");
+    }
+
+    nextButton_2.onclick = () => {
+        Director.showScene("third",);
+    }
+
+    backButton_2.onclick = () => {
+        Director.showScene("second");
+    }
+
+    nextButton_3.onclick = () => {
+        Director.showScene("fourth");
+    }
+
+    backButton_3.onclick = () => {
+        Director.showScene("third");
     }
 
     /*
