@@ -349,6 +349,25 @@
             currentScene.alpha = 1;
         },
 
+        // slow fade 
+
+        slow : async (currentScene,nextScene,params) => {
+            if (params == undefined) params = {};
+            if (params.duration == undefined) params.duration = 2000;
+
+            await Animate.to(currentScene,{alpha:0.5,duration:params.duration/2});
+            await app.stage.removeChild(currentScene);
+
+            nextScene.alpha = 0.5;
+
+            await app.stage.addChild(nextScene);
+
+            await Animate.to(nextScene,{alpha:1,duration:params.duration/2});
+            currentScene.alpha = 1;
+        },
+
+
+
         //Slide in a particular direction
         swipe : async (currentScene,nextScene,params) => {
 
@@ -491,7 +510,7 @@
     }
 
     backButton_2.onclick = () => {
-        Director.showScene("second");
+        Director.showScene("second", { transition: Director.slow});
         app.stage.removeChild(my_sprite2);
         app.stage.addChild(my_sprite);
     }
@@ -504,7 +523,7 @@
     }
 
     backButton_3.onclick = () => {
-        Director.showScene("third");
+        Director.showScene("third", { transition: Director.fade});
         app.stage.removeChild(my_sprite3);
         app.stage.addChild(my_sprite2);
     }
