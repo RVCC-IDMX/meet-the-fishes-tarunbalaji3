@@ -310,7 +310,7 @@
                 nextScene    = Director.scene[nextSceneName];
 
             if (params.transition == undefined)
-                params.transition = Director.cut;
+                params.transition = Director.swipe;
 
             await params.transition(currentScene, nextScene, params);
 
