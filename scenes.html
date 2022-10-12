@@ -442,6 +442,28 @@
     my_sprite3.anchor.set(0.5);
 
 
+    /* Animations */
+
+    let move = async () => {
+        await Animate.to(my_sprite, {x:400,y:120,duration:3000});
+        await Animate.to(my_sprite, {x:250,y:120,duration:3000});
+        await Animate.to(my_sprite, {x:330,y:200,duration:3000});
+        move();
+    }
+
+    let move2 = async () => {
+        await Animate.to(my_sprite2, {x:330,y:150,duration:2000});
+        await Animate.to(my_sprite2, {x:330,y:200,duration:2000});
+        move2();
+    }
+
+    let move3 = async () => {
+        await Animate.to(my_sprite3, {x:400,y:200,duration:2000});
+        await Animate.to(my_sprite3, {x:200,y:200,duration:2000});
+        await Animate.to(my_sprite3, {x:330,y:200,duration:2000});
+        move3();
+    }
+
 
     /* Now let's set up our prior scenes with the Director instead. */
 
@@ -453,6 +475,7 @@
     nextButton.onclick = () => {
         Director.showScene("second");
         app.stage.addChild(my_sprite);
+        move();
     }
 
     backButton.onclick = () => {
@@ -464,6 +487,7 @@
         Director.showScene("third",);
         app.stage.removeChild(my_sprite);
         app.stage.addChild(my_sprite2);
+        move2();
     }
 
     backButton_2.onclick = () => {
@@ -476,6 +500,7 @@
         Director.showScene("fourth");
         app.stage.removeChild(my_sprite2);
         app.stage.addChild(my_sprite3);
+        move3();
     }
 
     backButton_3.onclick = () => {
