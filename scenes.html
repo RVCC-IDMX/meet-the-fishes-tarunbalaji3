@@ -173,15 +173,15 @@
     // /* Swapping between scenes */
     //
 
-    nextButton.onclick = () => {
-        app.stage.removeChild(scene1);
-        app.stage.addChild(scene2);
-    }
+    // nextButton.onclick = () => {
+    //     app.stage.removeChild(scene1);
+    //     app.stage.addChild(scene2);
+    // }
 
-    backButton.onclick = () => {
-        app.stage.removeChild(scene2);
-        app.stage.addChild(scene1);
-    }
+    // backButton.onclick = () => {
+    //     app.stage.removeChild(scene2);
+    //     app.stage.addChild(scene1);
+    // }
 
     // nextButton_2.onclick = () => {
     //     app.stage.removeChild(scene2);
@@ -415,6 +415,34 @@
 
     };
 
+    /* Fish */
+
+
+    // Fish 1
+    const my_sprite = PIXI.Sprite.from('img/fish_1.png');
+    my_sprite.scale.set(0.3);
+    my_sprite.x = 330;
+    my_sprite.y = 200;
+    my_sprite.anchor.set(0.5);
+
+
+    // Fish 2 
+    const my_sprite2 = PIXI.Sprite.from('img/fish_2.png');
+    my_sprite2.scale.set(0.4);
+    my_sprite2.x = 330;
+    my_sprite2.y = 200;
+    my_sprite2.anchor.set(0.5);
+
+
+    // Fish 3 
+    const my_sprite3 = PIXI.Sprite.from('img/fish_3.png');
+    my_sprite3.scale.set(0.2);
+    my_sprite3.x = 330;
+    my_sprite3.y = 200;
+    my_sprite3.anchor.set(0.5);
+
+
+
     /* Now let's set up our prior scenes with the Director instead. */
 
     Director.addScene("first",scene1);
@@ -423,27 +451,37 @@
     Director.addScene("fourth",scene4);
 
     nextButton.onclick = () => {
-        Director.showScene("second",);
+        Director.showScene("second");
+        app.stage.addChild(my_sprite);
     }
 
     backButton.onclick = () => {
         Director.showScene("first");
+        app.stage.removeChild(my_sprite);
     }
 
     nextButton_2.onclick = () => {
         Director.showScene("third",);
+        app.stage.removeChild(my_sprite);
+        app.stage.addChild(my_sprite2);
     }
 
     backButton_2.onclick = () => {
         Director.showScene("second");
+        app.stage.removeChild(my_sprite2);
+        app.stage.addChild(my_sprite);
     }
 
     nextButton_3.onclick = () => {
         Director.showScene("fourth");
+        app.stage.removeChild(my_sprite2);
+        app.stage.addChild(my_sprite3);
     }
 
     backButton_3.onclick = () => {
         Director.showScene("third");
+        app.stage.removeChild(my_sprite3);
+        app.stage.addChild(my_sprite2);
     }
 
     /*
