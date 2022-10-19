@@ -408,12 +408,14 @@
           if (params.duration == undefined) params.duration = 2000;
 
           await Animate.to(currentScene, {
-            rotation: 180,
-            duration: params.duration / 2,
+            rotation: Math.PI,
+            duration: params.duration / 2
           });
           app.stage.removeChild(currentScene);
 
           app.stage.addChild(nextScene);
+
+          currentScene.rotation = 0;
         },
 
         //Slide in a particular direction
@@ -547,7 +549,7 @@
       };
 
       backButton_2.onclick = () => {
-        Director.showScene('second'/*, { transition: Director.rotate }*/);
+        Director.showScene('second', { transition: Director.rotate });
       };
 
       nextButton_3.onclick = () => {
